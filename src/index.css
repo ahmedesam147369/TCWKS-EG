@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Tajawal", sans-serif;
+  
+  --color-gold-light: #fdf2d5;
+  --color-gold: #d4af37;
+  --color-gold-dark: #b8860b;
+  --color-edu-blue: #1a365d;
+  --color-edu-blue-light: #2c5282;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-slate-50 text-slate-900 antialiased;
+    direction: rtl;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #fdf2d5 50%, #b8860b 100%);
+}
+
+.blue-gradient {
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+  body {
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .print-no-break {
+    page-break-inside: avoid;
+  }
+}
